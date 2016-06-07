@@ -1,0 +1,7 @@
+isf_sesion_homepage:
+    path:     /sistema
+    defaults: { _controller: IsfSesionBundle:Default:index }
+
+login:
+    path: /login
+    defaults: { _controller: IsfSesionBundle:Default:login}

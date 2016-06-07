@@ -1,0 +1,22 @@
+isf_siale:
+    resource: "@IsfSialeBundle/Resources/config/routing.yml"
+    prefix:   /sistema/siale/
+
+isf_sesion:
+    resource: "@IsfSesionBundle/Resources/config/routing.yml"
+    prefix:   /
+
+isf_publico:
+    resource: "@IsfPublicoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout
+

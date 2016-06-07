@@ -1,0 +1,37 @@
+{% extends '::menu.html.twig' %}
+{% block contenido %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>
+            <!-- <small> <img src="data:;base64, {{ app.user.imagen | trim}}" alt="Imágen personal" /> </small> -->
+            Bienvenid@ {{ app.user.username }}!
+        </h1>
+        <p> Inicio de sesión exitoso </p>
+        {#<p> Tu clave es "{{ app.user.password }}" </p>#}
+
+        <!-- Boton disparador del modal -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#miAyuda">
+            Cómo usar el sistema <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="miAyuda" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Cómo usar el sistema</h4>
+                    </div>
+                    <div class="modal-body">
+                        Pon el puntero del ratón sobre el menú, éste se desplegará solo.
+                        <br> Elige la opción que desees
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"> cerrar </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

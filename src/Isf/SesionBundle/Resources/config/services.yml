@@ -1,0 +1,4 @@
+services:
+#    isf_sesion.example:
+#        class: Isf\SesionBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

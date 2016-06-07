@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+body {
+    font-family: Roboto, arial, serif;
+    height: 95%;
+    /*display: -webkit-flex;
+    display:         flex;*/
+    flex-flow: row;
+    padding-top: 80px;
+}
+
+.logueo {
+    display: flex;
+    align-items: baseline;
+    text-align: left;
+    border-color: #1c78d4;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 58px 58px 58px 58px;
+    width: 380px;
+    height: 160px;
+    margin-right: 32%;
+    margin-left: 32%;
+}
+
+footer {
+    display: block;
+}
+
+.logo_isi_menu {
+    width:60px;
+    height:60px;
+    margin-top:-9px;
+    margin-left:0px;
+}
+
+.bs-callout{
+    padding:15px;
+    margin:15px 0;
+    border:1px solid #eee;
+    border-left-width:5px;
+    border-radius:3px
+}
+
+.bs-callout h4{
+    margin-top:0;
+    margin-bottom:5px
+}
+
+.bs-callout p:last-child{
+    margin-bottom:0
+}
+
+.bs-callout code{
+    border-radius:3px
+}
+
+.bs-callout+.bs-callout{
+    margin-top:-5px
+}
+
+.bs-callout-danger{
+    border-left-color:#ce4844
+}
+
+.bs-callout-danger h4{
+    color:#ce4844
+}
+
+.bs-callout-warning{
+    border-left-color:#aa6708
+}
+
+.bs-callout-warning h4{
+    color:#aa6708
+}
+
+.bs-callout-info{
+    border-left-color:#1b809e
+}
+
+.bs-callout-info h4{
+    color:#1b809e
+}
+
+#camara, #fotoCanvas{
+    width: 365px;
+    min-height: 240px;
+    border: 1px solid #008000;
+}

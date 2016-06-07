@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+{% block menu_items %}
+<!-- fin datos del usuario -->
+<ul class="nav navbar-nav navbar-right">
+    {#<li> <a href="{{ url('isf_publico_homepage') }}"> <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;&nbsp;Configuración </a>#}
+    <li> <a title="Opciones sobre L. U. F. (Legajo Único de Familia y los legajos del M. D. S." href="#"> <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp;&nbsp;Legajos<span class="caret"></span> </a>
+        <ul class="dropdown-menu">
+            <li> <a href="#"> <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>&nbsp;&nbsp;S. I. A. Le. <span class="caret"></span> </a>
+                <ul class="dropdown-menu">
+                    {#<li class="disabled"> <a href="#"> consulta no disponible </a> </li>#}
+                    {#<li class="divider"></li>#}
+                    <li> <a href="#"> <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>&nbsp;&nbsp;Consultas <span class="caret"></span> </a>
+                        <ul class="dropdown-menu">
+                            <li> <a title="Obtiene motivo y origen de apertura de legajo, datos personales y domiciliario" href="{{ url('isf_consulta_legMotOrigPers') }}">Exportar legajos a csv</a> </li>
+                            {#<li class="divider"></li>
+                            <li class="disabled"> <a href="#"> consulta no disponible </a> </li>#}
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <!-- datos del Usuario -->
+    {% include "li_usuario.html.twig" %}
+    <!-- fin datos del usuario -->
+</ul>
+{% endblock %}

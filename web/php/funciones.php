@@ -1,0 +1,6 @@
+<?
+function generaCSV()
+{
+    return true;
+}
+?>

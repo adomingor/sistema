@@ -1,0 +1,11 @@
+# isf_consulta_homepage:
+#     path:     /
+#     defaults: { _controller: IsfSialeBundle:Default:index }
+
+isf_consulta_legMotOrigPers: # Motivo y origen de apertura mas datos pesonales y domicilio sin repetidos
+    path:     /conslegmotorigpers
+    defaults: { _controller: IsfSialeBundle:Default:legMotOrigPers }
+
+isf_consulta_legMotOrigPersCSV: # expota a csv legajos motivo y origen de apertura mas datos pesonales y domicilio sin repetidos
+    path:     /conslegmotorigperscsv/{fDde}/{fHta}
+    defaults: { _controller: IsfSialeBundle:Default:legMotOrigPersCSV }
