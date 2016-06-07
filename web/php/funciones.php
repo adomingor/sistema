@@ -1,6 +1,0 @@
-<?
-function generaCSV()
-{
-    return true;
-}
-?>

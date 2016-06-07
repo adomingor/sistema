@@ -2,11 +2,11 @@
 
 body {
     font-family: Roboto, arial, serif;
-    height: 95%;
+    /*height: 95%;*/
     /*display: -webkit-flex;
     display:         flex;*/
     flex-flow: row;
-    padding-top: 80px;
+    /*padding-top: 80px;*/
 }
 
 .logueo {

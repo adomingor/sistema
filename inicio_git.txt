@@ -19,3 +19,16 @@ git push -u origin master
 …or import code from another repository
 
 You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+-------------------------------------------------------------- HICE ESTOS PASOS
+ya existe el proyecto web.
+ya existe el archivo .gitignore
+
+ir al proyecto
+cd /var/www/html/sistema
+git init
+git add *
+git commit -m "mensaje inicial"
+git remote add origin https://github.com/adomingor/sistema.git
+git push -u origin master
+git checkout -b domingo

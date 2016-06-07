@@ -11,11 +11,11 @@ http://www.jqueryrain.com/?BWQoTDhi
 sudo su
 
 --------------- EN CASA --------------
-cd /media/datos/www/html/integra-si
+cd /media/datos/www/html/sistema
 
 php bin/console cache:clear
 
-cd /media/datos/www/html/integra-si
+cd /media/datos/www/html/sistema
 chown -R www-data:domi *
 cd app/Resources/
 find -type f -exec chmod 0664 {} \;
