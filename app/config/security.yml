@@ -48,5 +48,6 @@ security:
 
     access_control:
         - { path: ^/sistema, roles: [ROLE_ADMIN] }
+        - { path: ^/siale, roles: [ROLE_SIALE] }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 

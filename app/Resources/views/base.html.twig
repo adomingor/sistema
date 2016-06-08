@@ -15,21 +15,18 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     </head>
     <body>
-        AÑSJSAÑJ ÑDKLJ SAFÑLSAJKD F
         {% block menu %}
         <div class="container-fluid">
+            <div id="slider">Hello World!!</div>
+            <button id="trigger" type="button" class="btn btn-primary-outline"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></button>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <ul class="">
-                    <li>
                         <a href="{{ url('isf_sesion_homepage') }}">
-                            <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;&nbsp;Volver al sistema
+                            <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Volver al sistema
                         </a>
-                    </li>
                     {% include "li_usuario.html.twig" %}
-                </ul>
             {% else %}
-                <a href="{{ url('login') }}">
-                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;&nbsp;Iniciar Sesión
+                <a href="{{ url('login') }}" class="btn btn-primary-outline" role="button">
+                    <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Ingresar
                 </a>
             {% endif %}
         </div>
@@ -47,6 +44,7 @@
             <script src="{{ asset('smartmenus/addons/bootstrap/jquery.smartmenus.bootstrap.js') }}" type="text/javascript"></script>
             <script src="{{ asset('js/bootstrap-datepicker.js') }}" type="text/javascript"></script>
             <script src="{{ asset('js/bootstrap-datepicker.es.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('js/jquery.slidereveal.js') }}" type="text/javascript"></script>
             <script src="{{ asset('js/libreria.js') }}" type="text/javascript"></script>
             <!-- <script src="{{ asset('bundles/kartik-v/js/fileinput.min.js') }}" type="text/javascript"></script>
             <script src="{{ asset('bundles/kartik-v/js/fileinput_locale_es.js') }}" type="text/javascript"></script> -->

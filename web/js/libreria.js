@@ -19,3 +19,7 @@ $('.input-daterange').datepicker({
 $(function () {
     $('[data-toggle="popover"]').popover()
 });
+
+$('#slider').slideReveal({
+    trigger: $("#trigger")
+});

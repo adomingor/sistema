@@ -1,6 +1,6 @@
 isf_siale:
     resource: "@IsfSialeBundle/Resources/config/routing.yml"
-    prefix:   /sistema/siale/
+    prefix:   /siale/
 
 isf_sesion:
     resource: "@IsfSesionBundle/Resources/config/routing.yml"
