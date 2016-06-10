@@ -9,6 +9,15 @@ body {
     /*padding-top: 80px;*/
 }
 
+.usr-menu {
+    background-color:white;
+}
+
+.usr-avatar {
+    width: 90px;
+    height: 90px;
+}
+
 .logueo {
     display: flex;
     align-items: baseline;

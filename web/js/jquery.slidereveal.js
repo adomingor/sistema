@@ -33,7 +33,7 @@
       top: 0,
       overlay: false,
       "zIndex": 1049,
-      overlayColor: 'rgba(0,0,0,0.5)'
+      overlayColor: 'rgba(0,0,0,0.7)'
     };
 
     // Attributes

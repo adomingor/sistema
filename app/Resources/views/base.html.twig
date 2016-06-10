@@ -15,22 +15,64 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     </head>
     <body>
-        {% block menu %}
-        <div class="container-fluid">
-            <div id="slider">Hello World!!</div>
-            <button id="trigger" type="button" class="btn btn-primary-outline"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></button>
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <a href="{{ url('isf_sesion_homepage') }}">
-                            <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Volver al sistema
+        <div class="container-fluid"  style="padding:5px;">
+            <a id="trigger" type="button" class="btn"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+            <!-- menu -->
+            <div id="slider" class="usr-menu" style="padding-left:5px; padding-top:5px; overflow-y: auto;">
+                {% block menu %}
+                    <div class="" style="color:black; background-image: url('{{ asset('imagenes/fondo_usr7.jpgXX') }}'); width:275px; height:135px;">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <img src="{{ asset('imagenes/secret_smile.png') }}" class="img-circle usr-avatar" alt="img usr">
+                            </div>
+                            <div class="col-md-8 pull-xs-right" style="padding-top:40px;">
+                                <div class="btn-group">
+                                    <a class="dropdown-toggle text-muted" href="#" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration:none;">
+                                        Nombre Usuario
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">preferencias</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Cerrar sesión</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-primary" style="padding-left:25px; padding-right:10px;">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i> correo electrónico un poco largo del pierna pueden ser 60 car
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                    <div class="list-group" style="padding-right:3px; padding-top:3px;">
+                        <div class="input-group" style="padding-bottom:3px;">
+                            <input type="text" class="form-control inf_filtrar-html" id="exampleInputAmount" placeholder="Busque una opción">
+                            <div class="input-group-addon usr-menu"><i class="fa fa-search" aria-hidden="true"></i></div>
+                        </div>
+                        <a class="list-group-item inf_html-filtrable" href="{{ url('isf_publico_homepage') }}">
+                            Inicio <i class="fa fa-home fa-2x pull-xs-right" aria-hidden="true"></i>
                         </a>
-                    {% include "li_usuario.html.twig" %}
-            {% else %}
-                <a href="{{ url('login') }}" class="btn btn-primary-outline" role="button">
-                    <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Ingresar
-                </a>
-            {% endif %}
+                        <a class="list-group-item inf_html-filtrable" href="#">Dapibus ac facilisis in</a>
+                        <a class="list-group-item inf_html-filtrable" href="#">Dapibus ac facilisis in</a>
+                        <a class="list-group-item inf_html-filtrable" href="#">Morbi leo risus</a>
+                        <a class="list-group-item inf_html-filtrable" href="#">Porta ac consectetur ac</a>
+                        <a class="list-group-item inf_html-filtrable" href="#">Dapibus ac facilisis in</a>
+                        <a class="list-group-item inf_html-filtrable" href="#">Morbi leo risus</a>
+                        <a class="list-group-item inf_html-filtrable" href="#">Porta ac consectetur ac</a>
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <a class="list-group-item inf_html-filtrable" href="#">Vestibulum at eros</a>
+                            <a class="list-group-item inf_html-filtrable" href="{{ url('isf_sesion_homepage') }}">
+                                <i class="fa fa-sign-in fa-2x" aria-hidden="true"></i> Volver al sistema
+                            </a>
+                            {% include "li_usuario.html.twig" %}
+                        {% else %}
+                            <a class="list-group-item inf_html-filtrable" href="{{ url('login') }}">
+                                Ingresar <i class="fa fa-sign-in fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endblock %}
+            </div>
         </div>
-        {% endblock %}
 
         {% block logueo %}
         {% endblock %}
@@ -52,23 +94,22 @@
 
         {% block piePagina%}
             <div class="clearfix" />
-                <footer class="text-center text-muted">
-                    <br>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <!-- <img class="img-responsive" src="{{asset('images/logo_marca_tucuman_256.png')}}" alt="Logo" /> -->
-                        </div>
-                        <div class="col-md-4">
-                            <p>SISTEMA DE GESTION INTEGRAL DE NIÑEZ, ADOLESCENCIA Y FAMILIA (SIGEINAF)</p>
-                            <p> Departamento de Informática. 2015 - 2016</p>
-                            <p> Secretaría de Estado de Niñez, Adolescencia y Familia </p>
-                        </div>
-                        <div class="col-md-4">
-                            <img class="img-responsive pull-right" src="{{asset('images/bicentenario_independencia_256.png')}}" alt="Logo" />
-                        </div>
+            <footer class="text-center text-muted" style="position: fixed; bottom:0px; width:100%;">
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- <img class="img-responsive" src="{{asset('images/logo_marca_tucuman_256.png')}}" alt="Logo" /> -->
                     </div>
-                </footer>
+                    <div class="col-md-4 text-xs-center">
+                        <h6>SISTEMA DE GESTION INTEGRAL DE NIÑEZ, ADOLESCENCIA Y FAMILIA (SIGEINAF)</h6>
+                        <br> Departamento de Informática. 2015 - 2016
+                        <br> Secretaría de Estado de Niñez, Adolescencia y Familia
+                    </div>
+                    <div class="col-md-4">
+                        <img class="img-fluid pull-right" src="{{asset('imagenes/bicentenario_independencia_256.png')}}" alt="Logo" />
+                    </div>
+                </div>
+            </footer>
         {% endblock %}
     </body>
 </html>
