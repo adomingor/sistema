@@ -153,7 +153,7 @@
       var $overlayElement = this.overlayElement;
 
       // trigger hide() method
-      if (triggerEvents === undefined || triggerEvents) { setting.hide($el); }
+      if (triggerEvents === undefined || triggerEvents) { setting.hide($el); $("#inf_inp_txt_busq-menu").val("");}
 
       // hide the panel
       if (setting.push) {

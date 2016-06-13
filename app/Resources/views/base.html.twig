@@ -16,58 +16,110 @@
     </head>
     <body>
         <div class="container-fluid"  style="padding:5px;">
-            <a id="trigger" type="button" class="btn"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+            <a id="inf_lnk-muestra-menu" type="button" class="btn"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
             <!-- menu -->
             <div id="slider" class="usr-menu" style="padding-left:5px; padding-top:5px; overflow-y: auto;">
                 {% block menu %}
-                    <div class="" style="color:black; background-image: url('{{ asset('imagenes/fondo_usr7.jpgXX') }}'); width:275px; height:135px;">
-                        <div class="row">
-                            <div class="col-md-1">
-                                <img src="{{ asset('imagenes/secret_smile.png') }}" class="img-circle usr-avatar" alt="img usr">
-                            </div>
-                            <div class="col-md-8 pull-xs-right" style="padding-top:40px;">
-                                <div class="btn-group">
-                                    <a class="dropdown-toggle text-muted" href="#" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration:none;">
-                                        Nombre Usuario
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">preferencias</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Cerrar sesión</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row text-primary" style="padding-left:25px; padding-right:10px;">
-                            <i class="fa fa-envelope-o" aria-hidden="true"></i> correo electrónico un poco largo del pierna pueden ser 60 car
-                        </div>
-                    </div>
+                    <!-- {% include "usuario.html.twig" %} -->
                     <div class="clearfix"> </div>
                     <div class="list-group" style="padding-right:3px; padding-top:3px;">
-                        <div class="input-group" style="padding-bottom:3px;">
-                            <input type="text" class="form-control inf_filtrar-html" id="exampleInputAmount" placeholder="Busque una opción">
+                        <div class="input-group" style="padding-bottom:15px;">
+                            <input type="text" class="form-control inf_filtrar" id="inf_inp_txt_busq-menu" name="lnk_opc-menu" placeholder="Busque una opción">
                             <div class="input-group-addon usr-menu"><i class="fa fa-search" aria-hidden="true"></i></div>
                         </div>
-                        <a class="list-group-item inf_html-filtrable" href="{{ url('isf_publico_homepage') }}">
-                            Inicio <i class="fa fa-home fa-2x pull-xs-right" aria-hidden="true"></i>
-                        </a>
-                        <a class="list-group-item inf_html-filtrable" href="#">Dapibus ac facilisis in</a>
-                        <a class="list-group-item inf_html-filtrable" href="#">Dapibus ac facilisis in</a>
-                        <a class="list-group-item inf_html-filtrable" href="#">Morbi leo risus</a>
-                        <a class="list-group-item inf_html-filtrable" href="#">Porta ac consectetur ac</a>
-                        <a class="list-group-item inf_html-filtrable" href="#">Dapibus ac facilisis in</a>
-                        <a class="list-group-item inf_html-filtrable" href="#">Morbi leo risus</a>
-                        <a class="list-group-item inf_html-filtrable" href="#">Porta ac consectetur ac</a>
+                        <div id="inf_div-menu-inicio" class="inf_div-menu">
+                            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-menu-inicio">inicio principio home casa</label>
+                            <a class="list-group-item" href="{{ url('isf_publico_homepage') }}">
+                                Inicio <i class="fa fa-home fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="inf_div-siguenos" class="inf_div-menu">
+                            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-siguenos">siguenos síguenos facebook twitter compartir share</label>
+                            <a class="list-group-item" href="#">
+                                Síguenos <i class="fa fa-share-alt fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="inf_div-ubicanos" class="inf_div-menu">
+                            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-ubicanos">ubicanos ubícanos mapa punto referencia</label>
+                            <a class="list-group-item" href="#">
+                                Ubícanos <i class="fa fa-map-marker fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <!-- <div id="inf_div-menu1" class="inf_div-menu">
+                            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-menu1">legajos siale menores</label>
+                            <a class="list-group-item" href="#">
+                                Legajos <i class="fa fa-folder-o fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="inf_div-menu4" class="inf_div-menu">
+                            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-menu4">tablas listas listado</label>
+                            <a class="list-group-item" href="#">
+                                Tablas <i class="fa fa-table fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="inf_div-menu5" class="inf_div-menu">
+                            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-menu5">graficos gráficos informes</label>
+                            <a class="list-group-item" href="#">
+                                Graficos <i class="fa fa-pie-chart fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="inf_div-menu6" class="inf_div-menu">
+                            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-menu6">volver sistema ingresar</label>
+                            <a class="list-group-item" href="#">
+                                Volver al sistema <i class="fa fa-th-large fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="inf_div-menu7" class="inf_div-menu">
+                            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-menu7">legajos siale menores</label>
+                            <a class="list-group-item" href="#">
+                                Legajos <i class="fa fa-folder-o fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="inf_div-menu8" class="inf_div-menu">
+                            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-menu8">informes obtener datos imprimir</label>
+                            <a class="list-group-item" href="#">
+                                Informes <i class="fa fa-file-excel-o fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="inf_div-menu9" class="inf_div-menu">
+                            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-menu9">ingresos input</label>
+                            <a class="list-group-item" href="#">
+                                Ingresos <i class="fa fa-inbox fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="inf_div-menu10" class="inf_div-menu">
+                            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-menu10">tablas listas listado</label>
+                            <a class="list-group-item" href="#">
+                                Tablas <i class="fa fa-table fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="inf_div-menu11" class="inf_div-menu">
+                            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-menu11">graficos gráficos informes</label>
+                            <a class="list-group-item" href="#">
+                                Graficos <i class="fa fa-pie-chart fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div id="inf_div-menu12" class="inf_div-menu">
+                            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-menu12">volver sistema ingresar</label>
+                            <a class="list-group-item" href="#">
+                                Volver al sistema <i class="fa fa-th-large fa-2x pull-xs-right" aria-hidden="true"></i>
+                            </a>
+                        </div> -->
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <a class="list-group-item inf_html-filtrable" href="#">Vestibulum at eros</a>
-                            <a class="list-group-item inf_html-filtrable" href="{{ url('isf_sesion_homepage') }}">
-                                <i class="fa fa-sign-in fa-2x" aria-hidden="true"></i> Volver al sistema
-                            </a>
-                            {% include "li_usuario.html.twig" %}
+                            <div id="inf_div-menu0" class="inf_div-menu">
+                                <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-menu0"></label>
+                                <a class="list-group-item" href="{{ url('isf_sesion_homepage') }}">
+                                    Volver al sistema <i class="fa fa-sign-in fa-2x pull-xs-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            {% include "usuario.html.twig" %}
                         {% else %}
-                            <a class="list-group-item inf_html-filtrable" href="{{ url('login') }}">
-                                Ingresar <i class="fa fa-sign-in fa-2x pull-xs-right" aria-hidden="true"></i>
-                            </a>
+                            <div id="inf_div-menu-ingreso" class="inf_div-menu">
+                                <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-menu-ingreso">ingresar ENTRAR sistema system</label>
+                                <a class="list-group-item" name="lnk_opc-menu" href="{{ url('login') }}">
+                                    Ingresar <i class="fa fa-sign-in fa-2x pull-xs-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
                         {% endif %}
                     </div>
                 {% endblock %}

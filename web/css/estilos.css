@@ -9,6 +9,15 @@ body {
     /*padding-top: 80px;*/
 }
 
+.inf_filtrable {
+    display: none;
+}
+
+.inf_div-menu {
+    padding:0px;
+    margin-top:-5px;
+}
+
 .usr-menu {
     background-color:white;
 }
