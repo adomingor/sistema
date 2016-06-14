@@ -1,10 +1,18 @@
-/*$(function () {
-    $("#popMenuUsuario").popover();
-});*/
+// $(function () {
+//     $("#popMenuUsuario").popover();
+// });
 
 //$("#form_fDde").datepicker();
 
 $(document).ready(function(){
+    $(document).keyup(function(evento){ // presión de teclas en la página
+        if(evento.which==17) // tecla control
+        {
+            $('#inf_inp_txt_busq-menu').focus();
+            $("#slider").slideReveal("toggle");
+        }
+    });
+
     /* el input debe tener la clase inf_filtrar oculta los div que tengan label
     con la clase inf_filtrable y que el contenido html no coincidan con lo
     ingresado. El label tiene el mismo name que el input para obtener el grupo
@@ -21,9 +29,9 @@ $(document).ready(function(){
     });
 
     // click para desplegar el menu, da foco a input busqueda
-    $("#inf_lnk-muestra-menu").click(function(evento) {
-        $("#inf_inp_txt_busq-menu").focus();
-    });
+    // $("#inf_lnk-muestra-menu").click(function(evento) {
+    //     $("#inf_inp_txt_busq-menu").focus();
+    // });
 
     // cuando se utilizan dos fechas para realizar alguna acción
     // $(".input-daterange").datepicker({
@@ -37,12 +45,15 @@ $(document).ready(function(){
     //     toggleActive: true
     // });
 
-    // $("[data-toggle='popover']").popover();
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+
 });
 
 $("#slider").slideReveal({
     trigger: $("#inf_lnk-muestra-menu"),
     push: false,
     overlay: true,
-    width: 285
+    width: 310
 });

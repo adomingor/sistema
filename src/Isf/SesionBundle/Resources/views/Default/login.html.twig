@@ -1,70 +1,65 @@
-{% extends '::base.html.twig' %}
-{% block menu_items %}
-{% endblock %}
-{% block logueo%}
-<div class="container" align="middle" style="padding:40px;">
-    <div class="col-md-4 col-md-offset-4">
-
-        {% for flashMessage in app.session.flashbag.get('aviso') %}
-            <div class="alert alert-warning alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                {{ flashMessage }}
-            </div>
-        {% endfor %}
-
-        {#% if error %}
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                {{ error.message|trans }}
-            </div>
-        {% endif %#}
-
-        <div class="card">
-          <img class="card-img-top" data-src="..." alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Button</a>
-          </div>
-        </div>
-
-
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="panel-title"> Inicio de sesión </div>
-            </div>
-
-            <div style="padding-top:30px" class="panel-body" >
-                {{ form_start(form, {'attr': {'class': 'form-horizontal'} }) }}
-
-                    <div style="margin-bottom: 15px" class="input-group">
-                        {{ form_errors(form) }}
-                    </div>
-
-                    <div style="margin-bottom: 15px" class="input-group">
+{% extends "::base.html.twig" %}
+{% block contenido%}
+    {% if is_granted("IS_AUTHENTICATED_ANONYMOUSLY") %}
+    <div class="row" style="padding-top:4%;">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="card">
+                <img class="card-img-top img-circle center-block" src="{{ asset('imagenes/sin_imagen_personal.png') }}" alt="Logueo">
+                <!-- <img src="..." alt="..." class="img-circle"> -->
+                <!-- <img src="..." alt="..." class="img-thumbnail"> -->
+                <div class="card-block">
+                    <h4 class="card-title">Inicio de sesión</h4>
+                    {{ form_start(form, {"attr": {"class": "form-group row"} }) }}
+                    {{ form_errors(form) }}
+                    <div class="form-group">
                         {{ form_errors(form.username) }}
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        {{ form_widget(form.username, {'attr': {'placeholder': 'Nombre de usuario', 'class':'form-control', 'autofocus':'true'} }) }}
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
+                            {{ form_widget(form.username, {"attr": {"class":"form-control", "placeholder":"usuario", "autofocus":"true"} }) }}
+                        </div>
                     </div>
-
-                    <div style="margin-bottom: 15px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-qrcode"></i></span>
-                        {{ form_widget(form.password, {'attr': {'placeholder': 'Contraseña', 'class':'form-control'} }) }}
+                    <div class="form-group">
+                        {{ form_errors(form.password) }}
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></div>
+                            {{ form_widget(form.password, {"attr": {"class":"form-control", "placeholder":"contraseña"} }) }}
+                        </div>
+                        <small class="text-muted">Nunca revele sus contraseñas.</small>
                     </div>
-
-                    <div class="input-group">
-                        {{ form_rest(form) }}
-                    </div>
-
-                    <div class="btn-group">
-                        <button type="submit" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Ingresar
+                    {{ form_rest(form) }}
+                    <div class="form-group">
+                        <button id="IniSesion" type="submit" class="btn btn-primary center-block">
+                            Iniciar sesión <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>
                         </button>
+                        <br>
+                        <a id="agrUsr" class="btn btn-secondary-outline btn-lg pull-xs-right" href="#">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        </a>
+                        <a id="pagPpal" class="btn btn-secondary-outline btn-lg pull-xs-right" href="{{ url('isf_publico_homepage') }}">
+                            <i class="fa fa-home fa-lg" aria-hidden="true"></i>
+                        </a>
                     </div>
-                {{ form_end(form) }}
+                    {{ form_end(form) }}
+                    {% if error %}
+                        <p class="card-text">
+                            <div class="text-success">
+                                <i class="fa fa-key" aria-hidden="true"></i> <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;
+                                <a id="noSeMiClave" class="text-success" href="#">
+                                    Recuperar mi clave
+                                </a>
+                            </div>
+                            <!-- <div class='mdl-tooltip' for='noSeMiClave'>Recuperar mi clave</div> -->
+                            {#{ error.message|trans }#}
+                        </p>
+                    {% endif %}
+                </div>
             </div>
-                <br>
         </div>
     </div>
-</div>
+    {% endif %}
+    <!-- <div class='mdl-tooltip mdl-tooltip--large' for='IniSesion'>Ingresar al sistema</div>
+    <div class='mdl-tooltip' for='pagPpal'>Volver a la página principal</div>
+    <div class='mdl-tooltip' for='idAgrUsr'>Crear un nuevo usuario </div> -->
+{% endblock %}
+{% block menu %}
 {% endblock %}

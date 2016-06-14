@@ -2,11 +2,10 @@
 
 body {
     font-family: Roboto, arial, serif;
-    /*height: 95%;*/
-    /*display: -webkit-flex;
-    display:         flex;*/
-    flex-flow: row;
-    /*padding-top: 80px;*/
+}
+
+.inf_ocultar {
+    display: none;
 }
 
 .inf_filtrable {
@@ -45,12 +44,12 @@ footer {
     display: block;
 }
 
-.logo_isi_menu {
+/*.logo_isi_menu {
     width:60px;
     height:60px;
     margin-top:-9px;
     margin-left:0px;
-}
+}*/
 
 .bs-callout{
     padding:15px;

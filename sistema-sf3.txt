@@ -62,12 +62,12 @@ chown www-data:desarrollo .git .gitignore
 ---------------------------------
 CONVENCIONES PARA ID DE TAGS HTML
 ---------------------------------
-button  =   isi_btn_
-label   =   isi_lbl_
-table   =   isi_tbl
-a       =   isi_lnk_
-input type="checkbox" = isi_inpChk_
-input type="text" = isi_inpTxt_
+button  =   inf_btn_
+label   =   inf_lbl_
+table   =   inf_tbl
+a       =   inf_lnk_
+input type="checkbox" = inf_inpChk_
+input type="text" = inf_inpTxt_
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -106,11 +106,11 @@ para agregar el comentario a la auditoria de registro de las tablas
 
 
 ------------------ BUNDLE SESION
-php bin/console generate:bundle --namespace=Isi/SesionBundle --format=yml --no-interaction --dir=src
+php bin/console generate:bundle --namespace=Isf/SesionBundle --format=yml --no-interaction --dir=src
 
-php bin/console doctrine:generate:entity --entity="IsiSesionBundle:Usuarios" --fields="username:string(25 unique=true) password:string(64) salt:string(64) email:string(60 unique=true) isActive:boolean imagen:text" --format="annotation" --no-interaction
+php bin/console doctrine:generate:entity --entity="IsfSesionBundle:Usuarios" --fields="username:string(25 unique=true) password:string(64) salt:string(64) email:string(60 unique=true) isActive:boolean imagen:text" --format="annotation" --no-interaction
 
-php bin/console doctrine:generate:entity --entity="IsiSesionBundle:Roles" --fields="name:string(30 unique=true) role:string(20)" --format="annotation" --no-interaction
+php bin/console doctrine:generate:entity --entity="IsfSesionBundle:Roles" --fields="name:string(30 unique=true) role:string(20)" --format="annotation" --no-interaction
 
 
 insert into roles (name, role) values ('ADMIN', 'ROLE_ADMIN');
@@ -119,19 +119,19 @@ insert into usuarios_roles (usuarios_id, roles_id) values (1, 1);
 
 
 ------------------ BUNDLE PUBLICO, CONFIGURACION
-php bin/console generate:bundle --namespace=Isi/PublicoBundle --format=yml --dir=src --no-interaction
-php bin/console generate:bundle --namespace=Isi/ConfigBundle --format=yml --dir=src --no-interaction
+php bin/console generate:bundle --namespace=Isf/PublicoBundle --format=yml --dir=src --no-interaction
+php bin/console generate:bundle --namespace=Isf/ConfigBundle --format=yml --dir=src --no-interaction
 
 
 ------------------ BUNDLE PERSONA
-php bin/console generate:bundle --namespace=Isi/PersonaBundle --format=yml --no-interaction --dir=src
+php bin/console generate:bundle --namespace=Isf/PersonaBundle --format=yml --no-interaction --dir=src
 
 ---------------------------------------------------------------
 			ESTADO CIVIL
 ---------------------------------------------------------------
-php bin/console doctrine:generate:entity --entity="IsiPersonaBundle:EstCiviles" --fields="descrip:string(length=30 unique=true) codindec:integer" --format="annotation" --no-interaction
+php bin/console doctrine:generate:entity --entity="IsfPersonaBundle:EstCiviles" --fields="descrip:string(length=30 unique=true) codindec:integer" --format="annotation" --no-interaction
 
-php bin/console doctrine:generate:entity --entity="IsiPersonaBundle:EstCiviles" --fields="descrip:string(length=30 unique=true) codindec:integer usuario_crea:string(25) ip_crea:string(length=25 nullable=true) fecha_crea:datetimetz usuario_actu:string(25) ip_actu:string(length=25 nullable=true) fecha_actu:datetimetz" --format="annotation" --no-interaction
+php bin/console doctrine:generate:entity --entity="IsfPersonaBundle:EstCiviles" --fields="descrip:string(length=30 unique=true) codindec:integer usuario_crea:string(25) ip_crea:string(length=25 nullable=true) fecha_crea:datetimetz usuario_actu:string(25) ip_actu:string(length=25 nullable=true) fecha_actu:datetimetz" --format="annotation" --no-interaction
 
 ** cambiar AUTO por IDENTITY      * @ORM\GeneratedValue(strategy="IDENTITY")
 
@@ -140,60 +140,60 @@ php bin/console doctrine:generate:entity --entity="IsiPersonaBundle:EstCiviles" 
      * @ORM\Column(name="codindec", type="integer", options={"comment":"código del INDEC para el estado civil"})
 
 ** generar el formulario formType
-php bin/console generate:doctrine:form IsiPersonaBundle:EstCiviles
+php bin/console generate:doctrine:form IsfPersonaBundle:EstCiviles
 
 ** crear el controlador
 php bin/console generate:controller
-Controller name: IsiPersonaBundle:EstCiviles
+Controller name: IsfPersonaBundle:EstCiviles
 Routing format (php, xml, yml, annotation) [annotation]: (enter)
 Template format (twig, php) [twig]: (enter)
 New action name (press <return> to stop adding actions): nuevoAction o formularioAction
 Action route [/agregarEstCivil]: (enter)
-Template name (optional) [IsiPersonaBundle:EstCiviles:alta_est_civil.html.twig]: <-- ver ya que seria una sola para agregar y editar
+Template name (optional) [IsfPersonaBundle:EstCiviles:alta_est_civil.html.twig]: <-- ver ya que seria una sola para agregar y editar
 
 ---------------------------------------------------------------
 			GENERO DE PERSONA
 ---------------------------------------------------------------
-php bin/console doctrine:generate:entity --entity="IsiPersonaBundle:IdentGeneros" --fields="genero:string(length=30 unique=true) descrip:text usuario_crea:string(25) ip_crea:string(length=25 nullable=true) fecha_crea:datetimetz usuario_actu:string(25) ip_actu:string(length=25 nullable=true) fecha_actu:datetimetz" --format="annotation" --no-interaction
+php bin/console doctrine:generate:entity --entity="IsfPersonaBundle:IdentGeneros" --fields="genero:string(length=30 unique=true) descrip:text usuario_crea:string(25) ip_crea:string(length=25 nullable=true) fecha_crea:datetimetz usuario_actu:string(25) ip_actu:string(length=25 nullable=true) fecha_actu:datetimetz" --format="annotation" --no-interaction
 
 * @ORM\Column(name="genero", type="string", length=30, unique=true, options={"comment":"nombre del género"})
 * @ORM\Column(name="descrip", type="text", options={"comment":"descripción del género"})
 
 php bin/console doctrine:schema:update --dump-sql (--force para cerar, ver como actualizar en producción)
 
-php bin/console generate:doctrine:form IsiPersonaBundle:IdentGenero
+php bin/console generate:doctrine:form IsfPersonaBundle:IdentGenero
 
 php bin/console generate:controller
-nombre: IsiPersonaBundle:IdentidadGenero
+nombre: IsfPersonaBundle:IdentidadGenero
 enter (annotation), enter (twig)
 acciones:
-    indexAction (ruta: /identGenero) (vista: IsiPersonaBundle:IdentidadGenero:listado.html.twig)
-    nuevoAction (ruta: /identGenero/nuevo) (vista: IsiPersonaBundle:IdentidadGenero:formulario.html.twig)
-    edicionAction (ruta: /identGenero/edicion/{id}) (IsiPersonaBundle:IdentidadGenero:formulario.html.twig)
-    borrarAction (ruta: /identGenero/borrar/{id}) (vista: IsiPersonaBundle:IdentidadGenero:listado.html.twig)
+    indexAction (ruta: /identGenero) (vista: IsfPersonaBundle:IdentidadGenero:listado.html.twig)
+    nuevoAction (ruta: /identGenero/nuevo) (vista: IsfPersonaBundle:IdentidadGenero:formulario.html.twig)
+    edicionAction (ruta: /identGenero/edicion/{id}) (IsfPersonaBundle:IdentidadGenero:formulario.html.twig)
+    borrarAction (ruta: /identGenero/borrar/{id}) (vista: IsfPersonaBundle:IdentidadGenero:listado.html.twig)
 
 ---------------------------------------------------------------
 			LUGAR DE NACIMIENTO
 ---------------------------------------------------------------
-php bin/console doctrine:generate:entity --entity="IsiPersonaBundle:LugarNacim" --fields="descrip:string(length=70 unique=true) usuario_crea:string(25) ip_crea:string(25true) fecha_crea:datetimetz usuario_actu:string(25) ip_actu:string(25) fecha_actu:datetimetz" --format="annotation" --no-interaction
+php bin/console doctrine:generate:entity --entity="IsfPersonaBundle:LugarNacim" --fields="descrip:string(length=70 unique=true) usuario_crea:string(25) ip_crea:string(25true) fecha_crea:datetimetz usuario_actu:string(25) ip_actu:string(25) fecha_actu:datetimetz" --format="annotation" --no-interaction
 
     * @ORM\Column(name="descrip", type="string", length=70, unique=true, options={"comment":"lugar de nacimiento"})
 
-php bin/console generate:doctrine:form IsiPersonaBundle:LugarNacim
+php bin/console generate:doctrine:form IsfPersonaBundle:LugarNacim
 
 php bin/console generate:controller
-nombre: IsiPersonaBundle:LugarNacimiento
+nombre: IsfPersonaBundle:LugarNacimiento
 enter (annotation), enter (twig)
 acciones:
-    indexAction (ruta: /lugNacim) (vista: IsiPersonaBundle:LugarNacimiento:listado.html.twig)
-    nuevoAction (ruta: /lugNacim/nuevo) (vista: IsiPersonaBundle:LugarNacimiento:formulario.html.twig)
-    edicionAction (ruta: /lugNacim/edicion/{id}) (IsiPersonaBundle:LugarNacimiento:formulario.html.twig)
-    borrarAction (ruta: /lugNacim/borrar/{id}) (vista: IsiPersonaBundle:LugarNacimiento:listado.html.twig)
+    indexAction (ruta: /lugNacim) (vista: IsfPersonaBundle:LugarNacimiento:listado.html.twig)
+    nuevoAction (ruta: /lugNacim/nuevo) (vista: IsfPersonaBundle:LugarNacimiento:formulario.html.twig)
+    edicionAction (ruta: /lugNacim/edicion/{id}) (IsfPersonaBundle:LugarNacimiento:formulario.html.twig)
+    borrarAction (ruta: /lugNacim/borrar/{id}) (vista: IsfPersonaBundle:LugarNacimiento:listado.html.twig)
 
 ---------------------------------------------------------------
 			DNI
 ---------------------------------------------------------------
-php bin/console doctrine:generate:entity --entity="IsiPersonaBundle:Dnies" --fields="numero:integer pulgarDcho:text(nullable=true) foto:text(nullable=true) femision:date(nullable=true) fvto:date(nullable=true) nrotramite:bigint(nullable=true) ejemplar:string(length=1 nullable=true) codigo:string(length=90 nullable=true) codqr:string(length=90 nullable=true)" --format="annotation" --no-interaction
+php bin/console doctrine:generate:entity --entity="IsfPersonaBundle:Dnies" --fields="numero:integer pulgarDcho:text(nullable=true) foto:text(nullable=true) femision:date(nullable=true) fvto:date(nullable=true) nrotramite:bigint(nullable=true) ejemplar:string(length=1 nullable=true) codigo:string(length=90 nullable=true) codqr:string(length=90 nullable=true)" --format="annotation" --no-interaction
 
 /**
  * @ORM\OneToOne(targetEntity="Personas")
@@ -210,7 +210,7 @@ php bin/console doctrine:generate:entity --entity="IsiPersonaBundle:Dnies" --fie
 ---------------------------------------------------------------
 			PERSONAS
 ---------------------------------------------------------------
-php bin/console doctrine:generate:entity --entity="IsiPersonaBundle:Personas" --fields="apellido:string(45) nombre:string(55) sexo:string(1) fnac:date(nullable=true) ffallec:date(nullable=true) email:string(length=70 nullable=true) nn:boolean descrip:text(nullable=true) foto:text(nullable=true) usuario_crea:string(25) ip_crea:string(length=25 nullable=true) fecha_crea:datetimetz usuario_actu:string(25) ip_actu:string(length=25 nullable=true) fecha_actu:datetimetz" --format="annotation" --no-interaction
+php bin/console doctrine:generate:entity --entity="IsfPersonaBundle:Personas" --fields="apellido:string(45) nombre:string(55) sexo:string(1) fnac:date(nullable=true) ffallec:date(nullable=true) email:string(length=70 nullable=true) nn:boolean descrip:text(nullable=true) foto:text(nullable=true) usuario_crea:string(25) ip_crea:string(length=25 nullable=true) fecha_crea:datetimetz usuario_actu:string(25) ip_actu:string(length=25 nullable=true) fecha_actu:datetimetz" --format="annotation" --no-interaction
 
 -- agregar los indices las relaciones entre las tablas y cambiar el id AUTO por IDENTITY
 
@@ -225,7 +225,7 @@ php bin/console doctrine:generate:entity --entity="IsiPersonaBundle:Personas" --
  * @ORM\Index(name="ind_personas_ident_genero", columns={"ident_genero_id"}),
  * @ORM\Index(name="ind_personas_lugar_nacim", columns={"lugar_nacim_id"})
  * })
- * @ORM\Entity(repositoryClass="Isi\PersonaBundle\Repository\PersonasRepository")
+ * @ORM\Entity(repositoryClass="Isf\PersonaBundle\Repository\PersonasRepository")
  */
 class Personas
 ....
@@ -272,13 +272,13 @@ y ejecutar el comando para generar los getters y setters de las relaciones en la
 ---------------------------------------------------------------
 			FTS PERSONAS
 ---------------------------------------------------------------
-php bin/console doctrine:generate:entity --entity="IsiPersonaBundle:Fts" --fields="vector:tsvector domicilio:text(nullable=true)" --format="annotation" --no-interaction
+php bin/console doctrine:generate:entity --entity="IsfPersonaBundle:Fts" --fields="vector:tsvector domicilio:text(nullable=true)" --format="annotation" --no-interaction
 
 /**
  * Fts
  *
  * @ORM\Table(name="fts", indexes={@ORM\Index(name="ind_fts_vector_tsv", columns={"vector"})})
- * @ORM\Entity(repositoryClass="Isi\PersonaBundle\Repository\FtsRepository")
+ * @ORM\Entity(repositoryClass="Isf\PersonaBundle\Repository\FtsRepository")
  */
 
 
@@ -289,10 +289,10 @@ php bin/console doctrine:generate:entity --entity="IsiPersonaBundle:Fts" --field
 
     private $persona;
 
-php bin/console doctrine:generate:entities IsiPersonaBundle:Personas
-php bin/console doctrine:generate:entities IsiPersonaBundle:Dnies
-php bin/console doctrine:generate:entities IsiPersonaBundle:Fts
+php bin/console doctrine:generate:entities IsfPersonaBundle:Personas
+php bin/console doctrine:generate:entities IsfPersonaBundle:Dnies
+php bin/console doctrine:generate:entities IsfPersonaBundle:Fts
 
 ------------- FORMULARIOS
-php bin/console generate:doctrine:form IsiPersonaBundle:Personas
-php bin/console generate:doctrine:form IsiPersonaBundle:Dnies
+php bin/console generate:doctrine:form IsfPersonaBundle:Personas
+php bin/console generate:doctrine:form IsfPersonaBundle:Dnies

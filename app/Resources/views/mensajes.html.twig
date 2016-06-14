@@ -1,0 +1,25 @@
+<div class="text-xs-center">
+    {% for label, flashes in app.session.flashbag.all %}
+        {% for flash in flashes %}
+            <div id="isi_msjPag" class="row" style="padding-top:7px;">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="alert alert-{{ label }} alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{ flash | raw }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <div id="isi_msjProcesando" class="inf_ocultar">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw center-block"></i>
+        <span class="sr-only">Cargando...</span>
+    </div>
+
+    <!-- mensajes toast/snack -->
+    <!-- <div id="isi_msjToastSnack" aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button type="button" class="mdl-snackbar__action"></button>
+    </div> -->
+</div>

@@ -1,0 +1,42 @@
+{% if app.request.attributes.get("_route") == "isf_publico_homepage" %}
+    {% include ":menues:menuFijo.html.twig" %}
+    <div id="inf_div-siguenos" class="inf_div-menu">
+        <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-siguenos">siguenos síguenos facebook twitter compartir share</label>
+        <a class="list-group-item" href="#">
+            Síguenos <i class="fa fa-share-alt fa-2x pull-xs-right" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div id="inf_div-ubicanos" class="inf_div-menu">
+        <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-ubicanos">ubicanos ubícanos mapa punto referencia</label>
+        <a class="list-group-item" href="#">
+            Ubícanos <i class="fa fa-map-marker fa-2x pull-xs-right" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div id="inf_div-conocenos" class="inf_div-menu">
+        <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-conocenos">conocenos conócenos acercade about</label>
+        <a class="list-group-item" href="#">
+            Conócenos <i class="fa fa-info-circle fa-2x pull-xs-right" aria-hidden="true"></i>
+        </a>
+    </div>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div id="inf_div-volver-sistema" class="inf_div-menu">
+            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-volver-sistema">entrar login sistema volver </label>
+            <a class="list-group-item" href="{{ url('isf_sesion_homepage') }}">
+                Volver al sistema <i class="fa fa-desktop fa-2x pull-xs-right" aria-hidden="true"></i>
+            </a>
+        </div>
+    {% else %}
+        <div id="inf_div-login" class="inf_div-menu">
+            <label class="inf_filtrable" name="lnk_opc-menu" for="inf_div-login">iniciar entrar login sistema sesion sesión </label>
+            <a class="list-group-item" href="{{ url('login') }}">
+                Iniciar sesión <i class="fa fa-sign-in fa-2x pull-xs-right" aria-hidden="true"></i>
+            </a>
+        </div>
+    {% endif %}
+{% else %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {% include "::usuario.html.twig" %}
+        {% include ":menues:menuFijo.html.twig" %}
+        {% include ":menues:legajos.html.twig" %}
+    {% endif %}
+{% endif %}
