@@ -1,9 +1,9 @@
-<div class="text-xs-center">
+<div class="text-xs-center" style="margin-top:-10px;">
     {% for label, flashes in app.session.flashbag.all %}
         {% for flash in flashes %}
-            <div id="isi_msjPag" class="row" style="padding-top:7px;">
+            <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <div class="alert alert-{{ label }} alert-dismissible fade in" role="alert">
+                    <div id="isi_msjFlash" class="alert alert-{{ label }} alert-dismissible fade in" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         {{ flash | raw }}
                     </div>
@@ -12,7 +12,9 @@
         {% endfor %}
     {% endfor %}
 
-    <div id="isi_msjProcesando" class="inf_ocultar">
+    <div id="isi_msjPag"> </div>
+
+    <div id="isi_msjProcesando" class="inf_ocultar" style="padding-bottom:15px;">
         <i class="fa fa-spinner fa-pulse fa-3x fa-fw center-block"></i>
         <span class="sr-only">Cargando...</span>
     </div>

@@ -3,19 +3,18 @@ function pepe (){
 }
 
 // boton submit del form ftips
-$('#btnConsultar').on('click', function () {
+$('#btnConsultar').on('click', function (evento) {
     // VER ANTES QUE ESTE TILDADO EL checkbox
     if( $('#form_chkConfirma').is(':checked') ) {
-        $(this).button('loading');
+        $(this).attr('disabled','disabled');
         $("#resuCons").html("");
-        $("#mostrarProgreso").html("<div class='text-center'> <i class='fa fa-spinner fa-pulse fa-5x'></i> </div>");
+        $("#isi_msjProcesando").removeClass("inf_ocultar");
     }
-    // $btn.button('reset')
 });
 
 // formulario de toda informacion posible del siale
 $("#fLegMotOrigPers" ).submit(function( event ) {
-    $("#form_chkConfirma").attr('checked', false); // una vez enviado el formulario destilda el check obligatorio para hacer la consult
+    $("#form_chkConfirma").attr('checked', false); // una vez enviado el formulario destilda el check obligatorio para hacer la consulta
 });
 
 $('#lnkDescargCSV').click(function(e) {
@@ -32,10 +31,12 @@ $('#lnkDescargCSV').click(function(e) {
                 'Content-Disposition':'attachment; filename=sialeHeader.csv'
             },
         beforeSend:function(xhr){
-            $("#mostrarProgreso").html("<div class='well text-center'>Preparando el informe &nbsp;&nbsp; <i class='fa fa-spinner fa-pulse'></i></div>");
+            $("#isi_msjProcesando").removeClass("inf_ocultar");
+            // $("#mostrarProgreso").html("<div class='well text-center'>Preparando el informe &nbsp;&nbsp; <i class='fa fa-spinner fa-pulse'></i></div>");
         },
         success:function(response, status, request){
-            $("#mostrarProgreso").html("<div class='text-info text-center'><h1><span class='glyphicon glyphicon-ok'></span></h1></div>");
+            $("#isi_msjProcesando").removeClass("inf_ocultar");
+            // $("#mostrarProgreso").html("<div class='text-info text-center'><h1><span class='glyphicon glyphicon-ok'></span></h1></div>");
             // var blob = new Blob([response], {type: 'text/csv: charset=UTF-8'});
             // window.open(URL.createObjectURL(blob));
             // blob = null;
@@ -54,7 +55,8 @@ $('#lnkDescargCSV').click(function(e) {
             $csv = $blob = $downloadLink = $url = null;
         },
         error:function(xhr, textStatus, errorThrown){
-            $("#mostrarProgreso").html("<div class='alert alert-danger text-center'><i class='fa fa-bug'></i><strong> Ups!</strong> algo ocurrió al intentar generar el informe</div>");
+            // $("#mostrarProgreso").html("<div class='alert alert-danger text-center'><i class='fa fa-bug'></i><strong> Ups!</strong> algo ocurrió al intentar generar el informe</div>");
+            $("#isi_msjPag").html("<div class='alert alert-danger text-center'><i class='fa fa-bug' aria-hidden='true'></i><strong> jajaja Ups!</strong> algo ocurrió al intentar generar el informe</div>");
         }
     });
     return objXhr;

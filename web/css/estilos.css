@@ -2,6 +2,18 @@
 
 body {
     font-family: Roboto, arial, serif;
+    background-color: #FAFAFA;
+}
+
+a.inf_info:link   
+{
+ text-decoration:none;
+}
+
+.inf_sombra {
+    -webkit-box-shadow: 10px 13px 18px -10px rgba(125,120,125,1);
+    -moz-box-shadow: 10px 13px 18px -10px rgba(125,120,125,1);
+    box-shadow: 10px 13px 18px -10px rgba(125,120,125,1);
 }
 
 .inf_ocultar {

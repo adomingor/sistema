@@ -20,12 +20,12 @@ class DefaultController extends Controller
 
     public function legMotOrigPersAction(Request $request)
     {
-        $request->getSession()->set('iconoPagina', 'images/pagina_inicio.png');
+        $request->getSession()->set('iconoPagina', 'imagenes/pagina_inicio.png');
         $verLinks = false;
 
         $form = $this->createFormBuilder()
             ->setMethod('GET')
-            ->add('fDde', TextType::class, array('required' => true))
+            ->add('fDde', TextType::class)
             ->add('fHta', TextType::class)
             ->add('chkConfirma', CheckboxType::class)
             ->getForm();
@@ -38,7 +38,7 @@ class DefaultController extends Controller
                 if ($resuBD['ups_Error']->getCode() == -69) // código personalizado al lanzar la excepción
                     $this->addFlash('warning', $resuBD['ups_Error']->getMessage());
                 else
-                    $this->addFlash('danger', 'Ups! algo pasó al obtener los legajos.<br>Por favor contacta al administrador del sistema');
+                    $this->addFlash('danger', '<strong><i class="fa fa-bug fa-lg" aria-hidden="true"></i> Ups!</strong> algo pasó al obtener los legajos.<br>Controla las fechas o contacta al administrador del sistema');
             } else {
                 //var_dump($resuBD[0]["cant"]);
                 //var_dump(count($resuBD))
@@ -49,7 +49,7 @@ class DefaultController extends Controller
                     $verLinks = true;
                     $colorMsj = 'warning';
                     $msg2 = "Puedes descargar el archivo";
-                    $limiteReg = 30000;
+                    $limiteReg = 20000;
                     switch (true) {
                         case ($cantRegi <= 1000):
                             $colorMsj = 'success';
